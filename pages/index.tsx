@@ -1,46 +1,28 @@
-import type {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-  NextPage,
-} from 'next'
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import PokemonCard from '../components/PokemonCard'
-import { Pokemon, PokeSpecieData } from '../interfaces/Pokemon'
+import { Pokemon } from '../interfaces/Pokemon'
 import fetchData from '../utils/fetchData'
 
 const Home: NextPage = ({
   data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="grid grid-cols-3 gap-4">
-      {data.map((pokemon: Pokemon) => {
-        return <PokemonCard key={pokemon.id} {...pokemon}></PokemonCard>
-      })}
+    <div className="container mx-auto">
+      <div className="grid grid-cols-3 gap-4 place-items-center">
+        {data.map((pokemon: Pokemon) => {
+          return <PokemonCard key={pokemon.id} {...pokemon}></PokemonCard>
+        })}
+      </div>
     </div>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { results } = await fetchData(
-    'https://pokeapi.co/api/v2/pokemon?offset=0&limit=151'
-  )
-  if (!results) {
-    return {
-      redirect: {
-        destination: '/error',
-        permanent: false,
-      },
-    }
-  }
-
-  const pokemonNames: Array<string> = results.map(
-    (specie: PokeSpecieData) => specie.name
-  )
-
+export const getStaticProps: GetStaticProps = async (context) => {
   let pokemonArray: Array<Pokemon> = []
 
-  for (let i = 0; i < pokemonNames.length; i++) {
+  for (let i = 1; i <= 150; i++) {
     const pokemon = await fetchData(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonNames[i]}?limit=101&offset=0/`
+      `https://pokeapi.co/api/v2/pokemon/${[i]}?limit=101&offset=0/`
     )
 
     const pokemonAbilities: Array<string> = pokemon.abilities.map(
@@ -60,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       id: pokemon.id,
       name: pokemon.name,
       baseExperience: pokemon.base_experience,
-      image: pokemon.sprites.other['official-artwork'].front_default,
+      image: pokemon.sprites.other.dream_world.front_default,
       abilities: pokemonAbilities,
       types: pokemonTypes,
     })

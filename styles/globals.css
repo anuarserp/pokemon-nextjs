@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fire {
+  background-color: #eb1d36;
+}
+
+.water {
+  background-color: #89cffd;
+}
+
+.grass {
+  background-color: #00ffab;
+}
+
+.bug {
+  background-color: #d4d925;
+}
+
+.normal {
+  background-color: #cfd2cf;
+}
+
+.poison {
+  background-color: #f806cc;
+}
+
+.ghost {
+  background-color: #80558c;
+}
+
+.electric {
+  background-color: #faea48;
+}
