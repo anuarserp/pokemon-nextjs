@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .fire {
-  background-color: #eb1d36;
+  background-color: #ff5b00;
 }
 
 .water {
-  background-color: #89cffd;
+  background-color: #277bc0;
 }
 
 .grass {
@@ -32,4 +32,32 @@
 
 .electric {
   background-color: #faea48;
+}
+
+.rock {
+  background-color: #876445;
+}
+
+.ice {
+  background-color: #8fe3cf;
+}
+
+.ground {
+  background-color: #bf9742;
+}
+
+.fairy {
+  background-color: #ff8fb1;
+}
+
+.psychic {
+  background-color: #f7ecde;
+}
+
+.dragon {
+  background-color: #319da0;
+}
+
+.fighting {
+  background-color: #eb1d36;
 }
