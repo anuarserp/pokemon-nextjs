@@ -8,7 +8,7 @@ const Home: NextPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-3 gap-4 place-items-center">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4 place-items-center">
         {data.map((pokemon: Pokemon) => {
           return <PokemonCard key={pokemon.id} {...pokemon}></PokemonCard>
         })}
@@ -28,21 +28,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const pokemonAbilities: Array<string> = pokemon.abilities.map(
       ({ ability }: any) => ability.name
     )
-    const pokemonTypes = pokemon.types.map(({ type, slot }: any) => {
-      let isPrimary: boolean = false
-      if (slot == 1) isPrimary = true
-
-      return {
-        name: type.name,
-        isPrimary,
-      }
-    })
+    const pokemonTypes = pokemon.types.map(({ type }: any) => type.name)
 
     pokemonArray.push({
       id: pokemon.id,
       name: pokemon.name,
       baseExperience: pokemon.base_experience,
-      image: pokemon.sprites.other.dream_world.front_default,
+      image: pokemon.sprites.other['official-artwork'].front_default,
       abilities: pokemonAbilities,
       types: pokemonTypes,
     })
