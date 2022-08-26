@@ -2,62 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-.fire {
-  background-color: #ff5b00;
+.bg-fire {
+  background-color: rgba(255, 91, 0, 0.4);
 }
 
-.water {
-  background-color: #3ab4f2;
+.opc-fire {
+  background-color: rgba(255, 91, 0);
 }
 
-.grass {
-  background-color: #00ffab;
+.bg-water {
+  background-color: rgba(58, 180, 242, 0.4);
 }
 
-.bug {
-  background-color: #d4d925;
+.border-type {
+  border: #fff solid;
 }
 
-.normal {
-  background-color: #cfd2cf;
+.opc-water {
+  background-color: rgba(58, 180, 242);
 }
 
-.poison {
-  background-color: #f806cc;
+.bg-grass {
+  background-color: rgba(40, 223, 153, 0.4);
 }
 
-.ghost {
-  background-color: #80558c;
+.opc-grass {
+  background-color: rgb(153, 255, 205);
 }
 
-.electric {
-  background-color: #faea48;
+.bg-bug {
+  background-color: rgba(210, 230, 3, 0.4);
 }
 
-.rock {
-  background-color: #876445;
+.opc-bug {
+  background-color: rgb(210, 230, 3);
 }
 
-.ice {
-  background-color: #c1efff;
+.bg-normal {
+  background-color: rgba(207, 210, 207, 0.4);
+}
+.opc-normal {
+  background-color: rgb(207, 210, 207);
 }
 
-.ground {
-  background-color: #bf9742;
+.bg-poison {
+  background-color: rgba(248, 6, 204, 0.4);
 }
 
-.fairy {
-  background-color: #ff8fb1;
+.opc-poison {
+  background-color: rgb(248, 6, 204);
 }
 
-.psychic {
+.bg-ghost {
+  background-color: rgba(128, 85, 140, 0.4);
+}
+
+.opc-ghost {
+  background-color: rgb(128, 85, 140);
+}
+
+.bg-electric {
+  background-color: rgba(250, 234, 72, 0.4);
+}
+
+.opc-electric {
+  background-color: rgb(250, 234, 72);
+}
+
+.bg-rock {
+  background-color: rgba(135, 100, 69, 0.4);
+}
+
+.opc-rock {
+  background-color: rgb(135, 100, 69);
+}
+
+.bg-ice {
+  background-color: rgba(193, 239, 255, 0.4);
+}
+
+.opc-ice {
+  color: rgba(0, 0, 0, 0.63);
+  background-color: rgb(193, 239, 255);
+}
+
+.bg-ground {
+  background-color: rgba(191, 151, 66, 0.4);
+}
+
+.opc-ground {
+  background-color: rgb(191, 151, 66);
+}
+
+.bg-fairy {
+  background-color: rgba(255, 143, 177, 0.4);
+}
+
+.opc-fairy {
+  background-color: rgb(255, 143, 177);
+}
+
+.bg-psychic {
+  background-color: rgba(247, 236, 222, 0.4);
+}
+
+.opc-psychic {
   background-color: #f7ecde;
+  color: rgba(0, 0, 0, 0.63);
 }
 
-.dragon {
-  background-color: #319da0;
+.bg-dragon {
+  background-color: rgb(49, 157, 160, 0.4);
 }
 
-.fighting {
-  background-color: #eb1d36;
+.opc-dragon {
+  background-color: rgb(49, 157, 160);
+}
+
+.bg-fighting {
+  background-color: rgba(235, 29, 54, 0.4);
+}
+
+.opc-fighting {
+  background-color: rgb(235, 29, 54);
+}
+
+.opc-flying {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.63);
 }

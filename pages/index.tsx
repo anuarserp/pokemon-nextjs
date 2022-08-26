@@ -1,6 +1,6 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import PokemonCard from '../components/PokemonCard'
-import { Pokemon } from '../interfaces/Pokemon'
+import { MinPokemon, Pokemon } from '../interfaces/Pokemon'
 import fetchData from '../utils/fetchData'
 
 const Home: NextPage = ({
@@ -18,24 +18,19 @@ const Home: NextPage = ({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  let pokemonArray: Array<Pokemon> = []
+  let pokemonArray: Array<MinPokemon> = []
 
   for (let i = 1; i <= 150; i++) {
     const pokemon = await fetchData(
       `https://pokeapi.co/api/v2/pokemon/${[i]}?limit=101&offset=0/`
     )
 
-    const pokemonAbilities: Array<string> = pokemon.abilities.map(
-      ({ ability }: any) => ability.name
-    )
     const pokemonTypes = pokemon.types.map(({ type }: any) => type.name)
 
     pokemonArray.push({
       id: pokemon.id,
       name: pokemon.name,
-      baseExperience: pokemon.base_experience,
       image: pokemon.sprites.other['official-artwork'].front_default,
-      abilities: pokemonAbilities,
       types: pokemonTypes,
     })
   }

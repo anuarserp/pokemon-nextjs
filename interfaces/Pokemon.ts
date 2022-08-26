@@ -1,10 +1,13 @@
-export interface Pokemon {
+export interface MinPokemon {
   id: number
   name: string
-  baseExperience: number
   image: string
-  abilities: Array<string>
   types: Array<string>
+}
+
+export interface Pokemon extends MinPokemon {
+  baseExperience: number
+  abilities: Array<string>
 }
 
 export interface PokeSpecieData {
